@@ -24,8 +24,7 @@ export default (props) => {
             key={world.id}
             title={world.name}
             onPress={() => {
-              //props.setWorld(world);
-              console.log(world);
+              props.setAppState({ world });
             }}
           />
         ))}

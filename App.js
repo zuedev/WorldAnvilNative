@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  Button,
-  Text,
-  TextInput,
-  View,
-  SafeAreaView,
-  StatusBar,
-} from "react-native";
+import { Button, TextInput, View, SafeAreaView, StatusBar } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import secrets from "./secrets";
 import WA from "./lib/WA";
 import WorldSelect from "./components/WorldSelect";
+import World from "./components/World";
 
 export default class extends React.Component {
   constructor(props) {
@@ -19,6 +13,11 @@ export default class extends React.Component {
       authed: false,
       application_key: secrets.application_key,
     };
+    this.setAppState = this.setAppState.bind(this);
+  }
+
+  setAppState(obj) {
+    this.setState(obj);
   }
 
   async componentDidMount() {
@@ -44,6 +43,10 @@ export default class extends React.Component {
 
   render() {
     const InitView = () => {
+      if (this.state.world) {
+        return <World state={this.state} setAppState={this.setAppState} />;
+      }
+
       if (this.state.authed && this.state.user) {
         return (
           <View>
@@ -55,7 +58,7 @@ export default class extends React.Component {
                 this.setState({ authed: false, apikey: null, user: null });
               }}
             />
-            <WorldSelect state={this.state} />
+            <WorldSelect state={this.state} setAppState={this.setAppState} />
           </View>
         );
       }
