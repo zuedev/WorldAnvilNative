@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "WorldAnvilNative",
+    "slug": "WorldAnvilNative",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/android-chrome-192x192.png",
+    "splash": {
+      "image": "./assets/default/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/default/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/android-chrome-192x192.png"
+    }
+  }
+}
